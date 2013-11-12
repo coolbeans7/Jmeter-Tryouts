@@ -94,6 +94,15 @@
         </HTTPSamplerProxy>
         <hashTree/>
       </hashTree>
+      <kg.apc.jmeter.reporters.AutoStop guiclass="kg.apc.jmeter.reporters.AutoStopGui" testclass="kg.apc.jmeter.reporters.AutoStop" testname="jp@gc - AutoStop Listener" enabled="true">
+        <stringProp name="avg_response_time">10000</stringProp>
+        <stringProp name="avg_response_time_length">10</stringProp>
+        <stringProp name="error_rate">50</stringProp>
+        <stringProp name="error_rate_length">10</stringProp>
+        <stringProp name="avg_response_latency">5000</stringProp>
+        <stringProp name="avg_response_latency_length">10</stringProp>
+      </kg.apc.jmeter.reporters.AutoStop>
+      <hashTree/>
       <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
