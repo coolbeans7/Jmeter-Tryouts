@@ -1,0 +1,2 @@
+# JMeter generated Cookie file
+getit.sv.comcast.com	TRUE	/	FALSE	0	generic_timezone	America%2FLos_Angeles
