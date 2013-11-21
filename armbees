@@ -1,0 +1,19 @@
+ssh into box
+verify supervisord installed
+
+sudo git clone repo to /opt/
+
+into /etc/supervisord.conf insert:
+
+[program:jmeterAngryServerBee]
+command=/opt/Bees-With-Machine-Guns/apache-jmeter-2.9/bin/jmeter-server
+numprocs=1
+directory=/opt/Bees-With-Machine-Guns/apache-jmeter-2.9/bin
+stdout_logfile=/opt/Bees-With-Machine-Guns/logs/supervisordOut.log
+autostart=true
+autorestart=true
+user=root
+
+$ sudo service supervisord restart
+verify stdout contains "jmeterAngryServerBee             STARTING"
+
