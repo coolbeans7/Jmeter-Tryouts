@@ -4,8 +4,10 @@ ssh -t remote-server 'sudo ls'
 ssh into box
 verify supervisord installed
 
-cd /opt/
+cd /opt
 sudo git clone http://github.csv.comcast.com/QA/Bees-With-Machine-Guns.git
+
+sudo mkdir Bees-With-Machine-Guns/logs
 
 into /etc/supervisord.conf insert:
 
