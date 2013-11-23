@@ -41,12 +41,12 @@
 
 # This is the base heap size -- you may increase or decrease it to fit your
 # system's memory availablity:
-HEAP="-Xms1024m -Xmx1024m"
+HEAP="-Xms1024m -Xmx2048m"
 
 # There's an awful lot of per-sample objects allocated during test run, so we
 # need a large eden to avoid too frequent scavenges -- you'll need to tune this
 # down proportionally if you reduce the HEAP values above:
-NEW="-XX:NewSize=256m -XX:MaxNewSize=256m"
+NEW="-XX:NewSize=512m -XX:MaxNewSize=1536m"
 
 # This ratio and target have been proven OK in tests with a specially high
 # amount of per-sample objects (the HtmlParserHTMLParser tests):
@@ -75,7 +75,7 @@ TENURING="-XX:MaxTenuringThreshold=2"
 RMIGC="-Dsun.rmi.dgc.client.gcInterval=600000 -Dsun.rmi.dgc.server.gcInterval=600000"
 
 # Increase MaxPermSize if you use a lot of Javascript in your Test Plan :
-PERM="-XX:PermSize=64m -XX:MaxPermSize=128m"
+PERM="-XX:PermSize=64m -XX:MaxPermSize=256m"
 
 # Finally, some tracing to help in case things go astray:
 #DEBUG="-verbose:gc -XX:+PrintTenuringDistribution"
