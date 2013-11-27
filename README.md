@@ -29,5 +29,8 @@ idea: create loadout =>
   specify parameters for threading users
   modifies .jmx script with correct loadup
   
+HEAP=-Xms2048m -Xmx2048m’
+Please note if you increased the allocated JMeter heap memory remember that you need to have Java runtime environment 6 or above. What you may notice is you’re unable to allocate more than 2 GB of memory; this happened to me, JMeter refused to open, and was the cause of the JMeter only being able to use 1 CPU core. A quick fix for this is to install the 64 bit Java runtime environment, this should alleviate the problem.
 
+I hope this helped you, for my testing it did. If you have any questions or just liked this article feel free to leave a reply. If you want more information on best practices with JMeter please take a look at this link:
   
