@@ -1,4 +1,4 @@
-SeeIT-Load-Tests-Jmeter
+Bees-With-Machine-Guns
 =======================
 
 Run /apache-jmeter-2.9/bin/jmeter  
@@ -17,7 +17,8 @@ dev67:slave
 modifty seeitload01.jmx on local box  
 upload to dev64 /tests/  
 
-exec /launchbees 
+exec /launchbees
+python addGUID.py
 
 todo:  
 figure out how to reliably run jmeter server in background  
@@ -35,4 +36,11 @@ idea: create loadout =>
   modifies .jmx script with correct loadup  
   
 HEAP=-Xms2048m -Xmx2048m’  
-Please note if you increased the allocated JMeter heap memory remember that you need to have Java runtime environment 6 or above. What you may notice is you’re unable to allocate more than 2 GB of memory; this happened to me, JMeter refused to open, and was the cause of the JMeter only being able to use 1 CPU core. A quick fix for this is to install the 64 bit Java runtime environment, this should alleviate the problem.
+Please note if you increased the allocated JMeter heap memory remember that you need to have Java runtime environment 6 or above. What you may notice is you’re unable to allocate more than 2 GB of memory; this happened to me, JMeter refused to open, and was the cause of the JMeter only being able to use 1 CPU core. A quick fix for this is to install the 64 bit Java runtime environment, this should alleviate the problem.  
+
+Install R:
+add epel repo or yum localinstall rpm  
+tips: check for centos version and cat /etc/yum/vars/releasever  
+make sure 6.4 or w/e version there is correct to the OS  
+maybe disable plaxo repo in /etc/yum.repod/plaxo.repo  
+set disabled = 0  
