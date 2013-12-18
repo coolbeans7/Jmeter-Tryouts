@@ -1,5 +1,0 @@
-require(plyr)
-mydata=read.csv(file="/Users/agerho000/Desktop/output.csv", header=TRUE)
-dt <- ddply(mydata,~user,summarise,mean=mean(elapsed), timeStamp=mean(timeStamp))
-plot(dt$timeStamp, dt$mean)
-hist(dt$mean)

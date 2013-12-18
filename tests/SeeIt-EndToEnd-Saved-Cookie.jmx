@@ -560,6 +560,7 @@
             <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
+            <hostname>true</hostname>
           </value>
         </objProp>
         <stringProp name="filename"></stringProp>

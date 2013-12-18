@@ -1,0 +1,61 @@
+#import packages
+require plyr
+require ggplot2
+
+#import data
+	csvdata=read.csv(file="/Users/agerho000/Desktop/workInProgress/output.csv", header=TRUE)
+
+#add timestamp column
+	csvdata$fts=as.POSIXct(csvdata$timeStamp/1000,origin="1970-01-01")
+
+#create summary by user
+	summaryByUser <- ddply(csvdata,~user,summarise,AvgElapsed=mean(elapsed), timeStamp=mean(timeStamp))
+
+#create summary by label
+	summaryByLabel <- ddply(csvdata,~label,summarise,AvgElapsed=mean(elapsed))
+
+#Overall RT Distribution & Quantiles
+
+	#display histogram
+	> hist(summaryByUser$mean)
+	> qplot(summaryByUser$AvgElapsed, geom="density")
+
+	#reduce possible outliers by limiting x
+	> qplot(dt$mean, geom="histogram") + xlim(0,5000)
+
+	# remove outliers based between boxplot, plot
+	> h = hist(e[!e %in% boxplot.stats(e)$out])
+	> plot(h, freq=F, labels=paste(round(100*h$counts/sum(h$counts),1),"%",sep=""))
+
+#Response Count by Type
+	> summaryByCode <- ddply(csvdata,~responseCode,summarise,AvgElapsed=count(responseCode))
+
+#Delivered Load
+
+#Average Response Time
+	> latencyOverTime <- aggregate(summaryByUser$AvgElapsed, by=list(ts=summaryByUser$timeStamp), FUN=mean)
+	> qplot(latencyOverTime $ts, latencyOverTime $x, geom="line") + stat_smooth(span=0.9)
+
+
+#Average Response Time By User
+	> qplot(summaryByUser$fts, summaryByUser$AvgElapsed, geom="line")
+
+#Average Response Time By Code
+	> summaryByCode <- ddply(csvdata,~responseCode,summarise,AvgElapsed=mean(elapsed))
+
+#Average Response Time By Label
+	> qplot(csvdata$timeStamp, csvdata$elapsed, colour=csvdata$label)
+
+#Response Time Quantiles
+
+#Response Times Distribution Over Time
+
+#Response Codes Over Time
+
+#Response Times vs Virtual Users
+
+#Transactions Per Second
+	> timeCounts <- aggregate(summaryByUser$user, by=list(ts=summaryByUser$timeStamp), FUN=length)
+	> qplot(timeCounts$ts, timeCounts$x, geom="line") + stat_smooth()
+
+#Test Summary
